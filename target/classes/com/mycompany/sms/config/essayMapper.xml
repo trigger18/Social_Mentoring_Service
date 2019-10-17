@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="essay">
+
+	<select id="count" resultType="int">
+		select count(*) from sms_essay
+	</select>
+
+	<select id="e_list" parameterType="com.mycompany.sms.dto.PageDTO" resultType="com.mycompany.sms.dto.EssayDTO">
+		<![CDATA[
+			select b.* from (select rownum as rm, a.* 
+			from(select * from sms_essay order by essay_num desc)a)b 
+			where b.rm >= #{startRow} and b.rm <= #{endRow}		
+		]]>
+	</select>
+	
+	<select id="e_view" resultType="com.mycompany.sms.dto.EssayDTO" parameterType="int">
+		select * from sms_essay where essay_num = #{essay_num}
+	</select>
+
+	<insert id="e_ins" parameterType="com.mycompany.sms.dto.EssayDTO">
+		insert into sms_essay(mentor_num, essay_num, essay_subject, essay_summary, essay_content, essay_date, essay_img)
+		values(#{mentor_num}, sms_essay_seq.nextval, #{essay_subject}, #{essay_summary}, #{essay_content}, sysdate, #{essay_img})
+	</insert>
+
+	<select id="e_img" parameterType="com.mycompany.sms.dto.EssayDTO" resultType="String">
+		select essay_img from sms_essay where essay_num=#{essay_num }
+	</select>
+
+	<update id="e_update" parameterType="com.mycompany.sms.dto.EssayDTO">
+		update sms_essay set
+		essay_subject = #{essay_subject}, essay_summary = #{essay_summary}, essay_img = #{essay_img }, 
+		essay_content = #{essay_content}, essay_date = sysdate where essay_num = #{essay_num}
+	</update>
+
+	<delete id="e_del" parameterType="int">
+		delete from sms_essay where
+		essay_num = #{essay_num}
+	</delete>
+
+	<select id="checkMentor" parameterType="String" resultType="int">
+		select count(*) from sms_mentor where user_id = #{user_id}
+	</select>
+	
+	<select id="getMentorNum" parameterType="String" resultType="int">
+		select mentor_num from sms_mentor where user_id = #{user_id}
+	</select>
+	
+	<select id="getMentorInfo" parameterType="int" resultType="com.mycompany.sms.dto.MentorDTO">
+		select * from sms_mentor where mentor_num = #{mentor_num}
+	</select>
+	
+	<select id="getMentorInfoFromUserId" parameterType="String" resultType="com.mycompany.sms.dto.MentorDTO">
+		select * from sms_mentor where user_id = #{user_id}
+	</select>
+	<select id="compareMentorAndUser" parameterType="com.mycompany.sms.dto.MentorDTO" resultType="int">
+		select count(*) from sms_mentor where user_id=#{user_id} and mentor_num=#{mentor_num}
+	</select>	
+	
+	<select id="getEssayNum" resultType="int">
+		select max(essay_num) from sms_essay
+	</select>
+	
+	<select id="main_list" resultType="com.mycompany.sms.dto.EssayDTO">
+		select*from sms_essay order by essay_num desc
+	</select>
+	
+	<!-- for my page -->
+
+
+	<select resultType="com.mycompany.sms.dto.EssayDTO" id="myPageEssay" parameterType="int">
+		select *from sms_essay where mentor_num=#{mentor_num} 
+	</select>
+</mapper>

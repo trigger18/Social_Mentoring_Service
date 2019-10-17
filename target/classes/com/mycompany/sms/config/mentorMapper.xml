@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"    
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="mentor">
+	<!-- 멘토찾기 리스트 -->
+	<select id="list" resultType="com.mycompany.sms.dto.MentorDTO">
+		select * from sms_mentor
+		order by
+		mentor_num desc
+	</select>
+
+	<!-- 카테고리별 리스트 -->
+	<select id="list2" parameterType="com.mycompany.sms.dto.MentorFieldDTO"
+		resultType="com.mycompany.sms.dto.MentorDTO">
+		select * from sms_mentor
+		where mentor_num in(
+		<foreach collection="list" item="element" separator=",">
+			#{element.mentor_num}
+		</foreach>
+		)
+		order by mentor_num desc
+	</select>
+
+	<!-- 멘토 상세페이지 -->
+	<select id="view" parameterType="int"
+		resultType="com.mycompany.sms.dto.MentorDTO">
+		select *
+		from sms_mentor
+		where mentor_num=#{mentor_num}
+	</select>
+
+	<!-- 카테고리 이름 리스트 -->
+	<select id="fieldlist" parameterType="int"
+		resultType="com.mycompany.sms.dto.FieldDTO">
+		select f.field_name
+		from sms_mentor_field m, sms_field f
+		where m.mentor_num=#{num} and m.field_num=f.field_num
+		order by
+		f.field_num
+	</select>
+
+	<!-- 카테고리 번호 체크 -->
+	<select id="fieldcheck" parameterType="int"
+		resultType="com.mycompany.sms.dto.MentorFieldDTO">
+		select mentor_num
+		from sms_mentor_field
+		where
+		field_num=#{field_num}
+		order by mentor_num desc
+	</select>
+	
+	<!--  카테고리 인원수 체크 -->
+	<select id ="fieldmembercheck" parameterType="int" resultType="int">
+		select count(*) from sms_mentor_field where field_num = #{field_num}
+	</select>
+
+	<!--멘토 팔로우 여부 검색 -->
+	<select id="followcheck" parameterType="map" resultType="int">
+		select count(*)
+		from sms_follow
+		where user_id=#{user_id} and mentor_num=#{mentor_num}
+	</select>
+
+	<!-- 멘토 팔로우 -->
+	<insert id="followupdate" parameterType="com.mycompany.sms.dto.MentorFollowDTO">
+		insert into sms_follow values(#{mentor_num}, #{user_id})
+	</insert>
+
+	<!-- 멘토 팔로우 취소 -->
+	<delete id="followdel" parameterType="com.mycompany.sms.dto.MentorFollowDTO">
+		delete from sms_follow
+		where user_id=#{user_id} and mentor_num=#{mentor_num}
+	</delete>
+	
+	<!-- 질문 등록 -->
+	<insert id="qsinsert" parameterType="com.mycompany.sms.dto.QuestionDTO">
+		insert into sms_question values
+		(sms_question_seq.nextval,#{mentor_num}, #{user_id}, #{user_name},
+		#{question_title},#{question_content},sysdate)
+	</insert>
+
+	<!-- 질문 리스트 : 멘토 -->
+	<select id="qslist" parameterType="string"
+		resultType="com.mycompany.sms.dto.QuestionDTO">
+		select *
+		from sms_question
+		where mentor_num=
+		(select mentor_num
+		from sms_mentor
+		where user_id=#{user_id})
+		order by question_num desc
+	</select>
+	
+	<!-- 질문 리스트 : 멘티 -->
+	<select id="qslist2" parameterType="string"
+		resultType="com.mycompany.sms.dto.QuestionDTO">
+		select *
+		from sms_question
+		where user_id=#{user_id}
+		order by question_num desc
+	</select>
+	
+	<!-- 질문 상세페이지 -->
+	<select id="qsview" parameterType="int" resultType="com.mycompany.sms.dto.QuestionDTO">
+	  select * 
+	  from sms_question 
+	  where question_num=#{question_num}
+	</select>
+	
+	<!-- 답변 list -->
+	<select id="aslist" parameterType="int" resultType="com.mycompany.sms.dto.AnswerDTO">
+	  select * 
+	  from sms_answer 
+	  where question_num=#{question_num} 
+	  order by answer_num desc
+	</select>
+	
+	<!-- 답변 등록 -->
+	<insert id="asinsert" parameterType="com.mycompany.sms.dto.AnswerDTO">
+	  insert into sms_answer values
+	  (sms_answer_seq.nextval, #{question_num}, #{user_name},
+	   #{user_image},#{answer_content}, sysdate)
+	</insert>
+	
+	<!-- 멘토 팔로워 수  -->
+	<select id="follower" parameterType="int" resultType="int">
+	    select count(user_id) as
+		follow_count
+		from sms_follow
+		where mentor_num=#{num}
+        group by mentor_num
+		order by
+		count(user_id) desc
+	</select>
+
+	<select id="bestfollow" resultType="com.mycompany.sms.dto.BestFollow">
+		select count(user_id)-1 as
+		follow_count,
+		mentor_num
+		from sms_follow
+		group by mentor_num
+		order by
+		count(user_id) desc
+	</select>
+
+	<select id="myfollow" resultType="com.mycompany.sms.dto.MentorFollowDTO"
+		parameterType="String">
+		select * from sms_follow
+		where user_id = #{user_id}
+	</select>
+
+	<select resultType="com.mycompany.sms.dto.MentorDTO" id="chkMentor" parameterType="String">
+		select*from sms_mentor where user_id=#{user_id} 
+	</select>
+	
+
+</mapper>

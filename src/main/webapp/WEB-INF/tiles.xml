@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+
+
+<tiles-definitions>
+	<definition name="index" template="/WEB-INF/views/template/layout.jsp"><!-- 컨트롤러에서 리턴한 값의 이름 index -->
+		<put-attribute name="title" value="Spring Tiles Example" />
+		<put-attribute name="header" value="/WEB-INF/views/template/header.jsp" />
+		<put-attribute name="footer" value="/WEB-INF/views/template/footer.jsp" />
+	</definition>
+
+	<!-- Home -->
+	<definition name="home" extends="index">
+		<put-attribute name="title" value="Home" />
+		<put-attribute name="body" value="/WEB-INF/views/index.jsp" />
+	</definition>
+
+
+	<!-- User -->
+	<definition name="user_profile" extends="index">
+		<put-attribute name="title" value="user profile" />
+		<put-attribute name="body" value="/WEB-INF/views/user_profile.jsp" />
+	</definition>
+	<definition name="user_setting" extends="index">
+		<put-attribute name="title" value="user setting" />
+		<put-attribute name="body" value="/WEB-INF/views/user_setting.jsp" />
+	</definition>
+
+
+	<!-- Mentor -->
+	<definition name="mentor_list" extends="index">
+		<put-attribute name="title" value="mentor list" />
+		<put-attribute name="body" value="/WEB-INF/views/mentor_list.jsp" />
+	</definition>
+	<definition name="mentor_view" extends="index">
+		<put-attribute name="title" value="mentor view" />
+		<put-attribute name="body" value="/WEB-INF/views/mentor_view.jsp" />
+	</definition>
+		<definition name="question_write" extends="index">
+		<put-attribute name="title" value="멘토에게 질문하기" />
+		<put-attribute name="body" value="/WEB-INF/views/question_write.jsp" />
+	</definition>
+	<definition name="question_list" extends="index">
+		<put-attribute name="title" value="나의 질문/답변" />
+		<put-attribute name="body" value="/WEB-INF/views/question_list.jsp" />
+	</definition>
+	<definition name="question_view" extends="index">
+		<put-attribute name="title" value="나의 질문/답변" />
+		<put-attribute name="body" value="/WEB-INF/views/question_view.jsp" />
+	</definition>
+
+
+	<!-- Meeting -->
+	<definition name="meeting_detail" extends="index">
+		<put-attribute name="title" value="meeting detail" />
+		<put-attribute name="body" value="/WEB-INF/views/meeting_detail.jsp" />
+	</definition>
+	<definition name="meeting_list" extends="index">
+		<put-attribute name="title" value="meeting list" />
+		<put-attribute name="body" value="/WEB-INF/views/meeting_list.jsp" />
+	</definition>
+	<definition name="meeting_write" extends="index">
+		<put-attribute name="title" value="meeting write" />
+		<put-attribute name="body" value="/WEB-INF/views/meeting_write.jsp" />
+	</definition>
+	<definition name="meeting_update" extends="index">
+		<put-attribute name="title" value="this is test" />
+		<put-attribute name="body" value="/WEB-INF/views/meeting_update.jsp" />
+	</definition>
+
+
+
+	<!-- Mentor Ask -->
+	<definition name="wannabe" extends="index">
+		<put-attribute name="title" value="Do you want to be a mentor?" />
+		<put-attribute name="body" value="/WEB-INF/views/wannabe.jsp" />
+	</definition>
+
+	<definition name="wannabe_update" extends="index">
+		<put-attribute name="title" value="Do you want to be a mentor?" />
+		<put-attribute name="body" value="/WEB-INF/views/wannabe_update.jsp" />
+	</definition>
+
+	<!-- essay -->
+	<definition name="essay_list" extends="index">
+		<put-attribute name="title" value="essay list" />
+		<put-attribute name="body" value="/WEB-INF/views/essay_list.jsp" />
+	</definition>
+	<definition name="essay_write" extends="index">
+		<put-attribute name="title" value="essay write" />
+		<put-attribute name="body" value="/WEB-INF/views/essay_write.jsp" />
+	</definition>
+	<definition name="essay_view" extends="index">
+		<put-attribute name="title" value="essay view" />
+		<put-attribute name="body" value="/WEB-INF/views/essay_view.jsp" />
+	</definition>
+
+	<definition name="essay_update" extends="index">
+		<put-attribute name="title" value="essay update" />
+		<put-attribute name="body" value="/WEB-INF/views/essay_update.jsp" />
+	</definition>
+
+
+	<!-- about -->
+	<definition name="about" extends="index">
+		<put-attribute name="title" value="this is test" />
+		<put-attribute name="body" value="/WEB-INF/views/about.jsp" />
+	</definition>
+
+	<!-- log fixing -->
+	<definition name="log" extends="index">
+		<put-attribute name="title" value="login_form" />
+		<put-attribute name="body" value="/WEB-INF/views/login.jsp" />
+	</definition>
+	<definition name="sign" extends="index">
+		<put-attribute name="title" value="signUp_form" />
+		<put-attribute name="body" value="/WEB-INF/views/signUp.jsp" />
+	</definition>
+	
+	<definition name="google" extends="index">
+		<put-attribute name="title" value="signUp_form" />
+		<put-attribute name="body" value="/WEB-INF/views/google.jsp" />
+	</definition>
+	<definition name="googleSuccess" extends="index">
+		<put-attribute name="title" value="signUp_form" />
+		<put-attribute name="body" value="/WEB-INF/views/googleSuccess.jsp" />
+	</definition>
+
+	<definition name="myPageMenti" extends="index">
+		<put-attribute name="title" value="signUp_form" />
+		<put-attribute name="body" value="/WEB-INF/views/myPageMenti.jsp" />
+	</definition>
+	
+	<definition name="myPageMentor" extends="index">
+		<put-attribute name="title" value="signUp_form" />
+		<put-attribute name="body" value="/WEB-INF/views/myPageMentor.jsp" />
+	</definition>
+
+</tiles-definitions>
+
+
+
+
+

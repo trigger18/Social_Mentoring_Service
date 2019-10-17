@@ -1,0 +1,12 @@
+/* 페이지 관련  시작*/
+.pagelist a {
+	text-decoration: none;
+	color: black;
+}
+
+.pagelist a:hover, .pagelist .pagecolor {
+	text-decoration: underline;
+	color: red;
+}
+/* 페이지 관련  끝*/
+

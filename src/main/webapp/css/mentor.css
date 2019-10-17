@@ -1,0 +1,250 @@
+.aside-widget {
+	padding: 0px 15px;
+}
+
+.block-title {
+	font-size: 20px;
+	font-weight: 500;
+}
+
+.card {
+	border: 1px solid #ccc;
+	border-radius: 10px;
+	padding: 10px;
+	margin: 20px;
+	position: relative;
+}
+
+.card img {
+	border-radius: 50%;
+	border: 2px solid #ccc;
+	position: relative;
+}
+
+.card:hover {
+	background-color: #E0F2F7;
+}
+
+.card-field {
+	/* display: block; */
+	background-color: #f9865a;
+	font-size: 13px;
+	text-transform: uppercase;
+	padding: 3px 10px;
+	font-weight: 600;
+	border-radius: 2px;
+	margin-right: 15px;
+	color: #FFF;
+	-webkit-transition: 0.2s opacity;
+	transition: 0.2s opacity;
+	text-align: right;
+	float: right;
+}
+
+.card-name {
+	font-size: 23px;
+	font-weight: bold;
+}
+
+.card-info, .card-job {
+	text-align: right;
+	display: block;
+	margin-right: 15px;
+}
+
+.card-job {
+	font-size: 13px;
+}
+
+#title {
+	position: absolute;
+	width: 35%;
+	font-size: 12px;
+	font-weight: bold;
+	text-align: right;
+	top: 50px;
+	right: 29px;
+}
+
+.pagelist {
+	text-align: right;
+	margin-right: 20%;
+}
+
+.body {
+	width: 50%;
+	margin: 0 auto;
+	margin-top: 20px;
+}
+
+.mentor-box {
+	margin: 50px 100px;
+}
+
+.mentor-image-circle {
+	margin: 30px;
+	display: inline-block;
+	float: left;
+	/* background-color: yellow;  */
+}
+
+.mentor-image-circle img {
+	border-radius: 50%;
+	border: 2px solid #ccc;
+}
+
+.mentor-info {
+	margin: 30px 0 0 100px;
+	display: inline-block;
+	width: 50%;
+	/* background-color: red;  */
+}
+
+.follower {
+	margin-left : 15px;
+	padding-bottom : 2px;
+	border-bottom : 2px solid #c51c1c;
+	font-size : 12px;
+	font-weight: 600;
+}
+
+.mentoring-type {
+	margin-top: 30px;
+	color: #6d6d72;
+	font-weight: 600;
+}
+
+.mentoring-type-block {
+	font-size: 13px;
+	margin-top: 5px;
+}
+
+.mentoring-info {
+	color: #6d6d72;
+	font-weight: 600;
+	margin-top: 30px;
+}
+
+.button-container {
+	margin-top: 5px;
+}
+
+.mentor-name {
+	color: rgba;
+	font-size: 30px;
+	font-weight: bold;
+	font-size: 30px;
+}
+
+.mentor-name small {
+	font-size: 50%;
+	color: #6d6d72;
+}
+
+.mentor-job {
+	margin-top: 15px;
+	font-size: 20px;
+}
+
+.btn-container {
+	margin-top: 30px;
+}
+
+.detail-box {
+	margin: 35px 0;
+	padding: 15px 0;
+	border-top: 1px solid #c8c7cc;
+	border-bottom: 1px solid #c8c7cc;
+}
+
+.detail-box #block-title {
+	font-weight: bold;
+	margin: 35px 15px 10px;
+}
+
+.detail-box #block-content {
+	padding: 0 15px;
+}
+
+.field-chip {
+	display: inline-block;
+	font-size: 13px;
+	text-transform: uppercase;
+	padding: 3px 10px;
+	font-weight: 600;
+	border-radius: 2px;
+	margin-right: 5px;
+	margin-bottom: 5px;
+	color: #FFF;
+	background-color: #ff8700;
+	-webkit-transition: 0.2s opacity;
+	transition: 0.2s opacity
+}
+
+.modal {
+	display: none; /* Hidden by default */
+	position: fixed; /* Stay in place */
+	z-index: 10; /* Sit on top */
+	left: 0;
+	top: 0;
+	width: 100%; /* Full width */
+	height: 100%; /* Full height */
+	overflow: auto; /* Enable scroll if needed */
+	background-color: rgb(0, 0, 0); /* Fallback color */
+	background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+	background-color: #fefefe;
+	margin: 15% auto; /* 15% from the top and centered */
+	padding: 20px;
+	border: 1px solid #888;
+	width: 50%; /* Could be more or less, depending on screen size */
+}
+/* The Close Button */
+.close {
+	color: #aaa;
+	float: right;
+	font-size: 28px;
+	font-weight: bold;
+}
+
+.close:hover, .close:focus {
+	color: black;
+	text-decoration: none;
+	cursor: pointer;
+	float: left;
+}
+
+#question_content {
+	height: 300px;
+}
+
+#question_table {
+	margin: 50px 0 100px 0;
+}
+
+.post-content {
+	padding: 20px 0;
+}
+
+.post-info {
+	text-align: right;
+}
+
+.main-post {
+	border-bottom: 1px solid #eceef2;
+}
+
+.post-container {
+	padding-right: 80px;
+}
+
+.section-row:nth-child(2), .section-title {
+	padding-top: 50px;
+}
+
+.list-btn {
+	float: right;
+}
