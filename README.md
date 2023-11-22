@@ -53,14 +53,6 @@
 
 <br />
 
-## Contribute
-- KH Academy team SMS
-- 김현이
-- 김희준
-- 엄지훈
-- 이상준
-- 오영수
-- 최범식
 
 
 [report]: <https://github.com/trigger18/sms.git>
